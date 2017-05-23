@@ -13,17 +13,19 @@ width = 12.5
 height = 5
 area = width*height
 
+data_path = input("Path to data: ")
+cross_section = float(input("Cross sectional area of Sample: "))
+poisson = float(input("Enter Poisson ratio: "))
 
-s6061data = np.loadtxt("data/stress_strain_6061.txt", skiprows=1)
-s7075data = np.loadtxt("data/stress_strain_7075.txt", skiprows=1)
+data = np.loadtxt(data_path, skiprows=1)
 
-plt.plot(s6061data[:,0],s6061data[:,1], linestyle="-", color='r')
-plt.plot(s7075data[:,0],s7075data[:,1], linestyle="-", color='b')
+#order data by x axis (col 0)
+#convert data to stress and strain
+#take elastic modulus measurement
 
+plt.plot(data[:,0],data[:,1], linestyle="-", color='r')
+print(data)
 
-#linear_elastic = [elastic_modulus * i + int for i in strain_vals]
-
-#plt.plot(strain_vals[0:5500]+0.002, linear_elastic[0:5500])
 
 plt.ylabel(r"$\sigma MPa$")
 plt.xlabel(r"$\epsilon$")
