@@ -24,16 +24,25 @@
 \section{Abstract}
 \section{Introduction and Background}
 \subsection{Diffraction}
+\subsection{Elastoplasticity}
+\subsection{Strain Measurement}
+A strain diffractometer is a device that uses the princpiples of quantum mechanics and diffraction to provide insight into the behaviour of of material at the nanoscale. A material behaving elastically under an applied stress will have a corresponding strain in accordance with Hooke's Law. This strain manifests itself physically as an alongation but on the nanoscale it can be measured as a change in the atomic spacing of the material. This change in atomic spacing can be observed by comparing the positions of a diffraction peak, caused by the lattice structure in the material, before and after a stress is applied. This measurement technique is both non-destructive and non-contact, making it ideal for use in many engineering situations.
+The output of the strain diffractometry measurements will be two angles, those of the diffraction peak before, and while, the strain is applied. These angles can be converted into spacings using Bragg's Law, and further converted into strain ($\epsilon$) using the following formula where $d$ is the control spacing and $d'$ is the strained spacing.
+\[
+\epsilon = \frac{d'-d}{d}
+\]
+The region of material that is tested is known as the "Gauge Volume", and the measured strain represents the average value over this region. The gauge volume is formed at the intersection of the incoming beam and the diffracted beam. The direction that the strain is measured in is also the direction that bisects the two beams, thus is is important to take two (or three) perpendicular measurements in order to get a complete strain state.
+It is important to not that this measurement technique will not measure any plastic strain in the sample. Elastic strain is cause by the change in lattice spacings due to applied stress, whereas plastic strain is the result of the movement of defects and displacements in the lattice of the material. Plastic strain does not affect the lattice spacing, only the location of atoms in the lattice.
 \section{Experimental Details}
 \subsection{Testing of Mechanical Properties}
-In order to determine the residual stress in a material by the neutron diffraction method, it is critical to know some of the important mechanical properties of the material. Namely: the Young's Modulus ($E$), and Poisson's Ratio ($\nu$). The Young's Modulus (or Modulus of Elasticity) is the relationship between stress ($\sigma$) and strain ($\epsilon$).
+In order to determine the residual stress in a material by the neutron diffraction method, it is critical to know some of the important mechanical properties of the material. Namely: the Young's Modulus ($E$), and Poisson's Ratio ($\nu$). The Young's Modulus (or Modulus of Elasticity) is the relationship between stress ($\sigma$) and strain ($\epsilon$) in accordance with Hooke's Law.
 $$\sigma = E\epsilon$$
 Poisson's Ratio is used for stress and strain in three dimensions:
 
 The mechanical properties of the materials were determinedby the use of the University's tensile testing facilities on small samples of each material. The samples used were small 'dogbone' coupons, cut from the original stock plates of aluminium. A schematic of these 'dogbones' is shown below.
 
-These coupons wer put through a standard tensile test, involving the application of an increasing tensile load until failure while simultaneously recording measurements with a load cell and a strain gauge. Once the sample had passed passed it's yield stress and begun plastic deformation the strain gauge was remooved the and load was increased to the point of failure. The final load ($F_F$), and ultimate strain ($\sigma_U$) are recorded in \ref{tab:a}.
-\begin{table}
+These coupons were put through a standard tensile test, involving the application of an increasing tensile load until failure while simultaneously recording measurements with a load cell and a strain gauge. Once the sample had passed passed it's yield stress and begun plastic deformation the strain gauge was removed the and load was increased to the point of failure. The final load ($F_F$), and ultimate strain ($\sigma_U$) are recorded in Table \ref{tab:a}.
+\begin{table}[h]
 	\centering
 	\caption{Final load and ultimate strain measured for the tensile test coupons}\label{tab:a}
 	\begin{tabular}[c]{c | c c}
@@ -42,7 +51,22 @@ These coupons wer put through a standard tensile test, involving the application
 	7075-T6 & 34.7 & 0.18 \\
 	\end{tabular}
 \end{table}
-\section{Results}
+
+\subsection{Data Processing}
+Once the raw data had been gathered from the experiments it needed to be processed and used in calculations to determine the residual stress. The data was processed using Anaconda, which is a scientific distribution of Python.
+Before the data could be processed some known values were recorded into "header" files allowing for easy access while processing the data. These known values included the dimensions of the test coupon, the Poisson Ratio (assumed to be $\nu = 0.3$), sample name, and filepaths to the relevant experimental data.
+The first data to be processed was the stress/strain data as that would allow for the determination of the elastic properites of the two metals, allowing further calculations. The data was loaded from text files to a Numpy array, then sorted by displacement values before being transformed into stress and strain values.
+In order to find an Elastic Modulus ($E$) from this sorted data, a linear regression fit was carried out on the first 20\% of the data. This 20\% was chosen as it contained a linear region of the elastic behaviour of the metal, while being minimally affected by the non-linearities caused by plastic deformation. The results of this fit are recorded in Table \ref{tab:b}. 
+\begin{table}[h]
+	\centering
+	\caption{Linear Regression results for the stress/strain datasets}\label{tab:b}
+	\begin{tabular}[c]{c | c c c c}
+	Sample & $E$ (\si{\mega\pascal}) & R value & P value & S error \\ \hline\
+	6061-T6 & 1 & 1 & 1 & 1 \\
+	7075-T6 & 1 & 1 & 1 & 1 \\
+	\end{tabular}
+\end{table}
+
 \section{Discussion}
 \section{Conclusion}
 \section{References}
