@@ -34,6 +34,8 @@ The output of the strain diffractometry measurements will be two angles, those o
 The region of material that is tested is known as the "Gauge Volume", and the measured strain represents the average value over this region. The gauge volume is formed at the intersection of the incoming beam and the diffracted beam. The direction that the strain is measured in is also the direction that bisects the two beams, thus is is important to take two (or three) perpendicular measurements in order to get a complete strain state.
 It is important to not that this measurement technique will not measure any plastic strain in the sample. Elastic strain is cause by the change in lattice spacings due to applied stress, whereas plastic strain is the result of the movement of defects and displacements in the lattice of the material. Plastic strain does not affect the lattice spacing, only the location of atoms in the lattice.
 \section{Experimental Details}
+\subsection{Preparation of Samples}
+The samples to undergo residual stress testing were cut from sheets of aluminium from a supplier based in Sydney. The stress was applied using a four point bending device and displacement was measured with a steel ruler
 \subsection{Testing of Mechanical Properties}
 In order to determine the residual stress in a material by the neutron diffraction method, it is critical to know some of the important mechanical properties of the material. Namely: the Young's Modulus ($E$), and Poisson's Ratio ($\nu$). The Young's Modulus (or Modulus of Elasticity) is the relationship between stress ($\sigma$) and strain ($\epsilon$) in accordance with Hooke's Law.
 $$\sigma = E\epsilon$$
@@ -51,12 +53,13 @@ These coupons were put through a standard tensile test, involving the applicatio
 	7075-T6 & 34.7 & 0.18 \\
 	\end{tabular}
 \end{table}
-
+\subsection{Bragg Institute}
 \subsection{Data Processing}
+\subsubsection{Determination of Elastic Properties}
 Once the raw data had been gathered from the experiments it needed to be processed and used in calculations to determine the residual stress. The data was processed using Anaconda, which is a scientific distribution of Python.
 Before the data could be processed some known values were recorded into "header" files allowing for easy access while processing the data. These known values included the dimensions of the test coupon, the Poisson Ratio (assumed to be $\nu = 0.3$), sample name, and filepaths to the relevant experimental data.
-The first data to be processed was the stress/strain data as that would allow for the determination of the elastic properites of the two metals, allowing further calculations. The data was loaded from text files to a Numpy array, then sorted by displacement values before being transformed into stress and strain values.
-In order to find an Elastic Modulus ($E$) from this sorted data, a linear regression fit was carried out on the first 20\% of the data. This 20\% was chosen as it contained a linear region of the elastic behaviour of the metal, while being minimally affected by the non-linearities caused by plastic deformation. The results of this fit are recorded in Table \ref{tab:b}. 
+The first data to be processed was the stress/strain data as that would allow for the determination of the elastic properites of the two metals, allowing further calculations. The data, which consisted of two columns, gauge length and applied force, was loaded from text files to a Numpy array, then sorted by displacement values before being transformed into stress and strain values.
+In order to find an elastic modulus ($E$) from this sorted data, a linear regression fit was carried out on the first 20\% of the data. This 20\% was chosen as it contained a linear region of the elastic behaviour of the metal, while being minimally affected by the non-linearities caused by plastic deformation. The results of this fit are recorded in Table \ref{tab:b} and Figure \ref{fig:StressStrain} show plots of the stress/strain curve and the calculated elasic modulus.
 \begin{table}[h]
 	\centering
 	\caption{Linear Regression results for the stress/strain datasets}\label{tab:b}
@@ -66,9 +69,15 @@ In order to find an Elastic Modulus ($E$) from this sorted data, a linear regres
 	7075-T6 & 1 & 1 & 1 & 1 \\
 	\end{tabular}
 \end{table}
-
+\begin{figure}
+	\caption{Stress/Strain curve for 6061-T6 and 7075-T6 Aluminium samples}\label{fig:StressStrain}
+\end{figure}
+%yield stress etc
+\subsubsection{Strain Diffractometry Data}
+The data from the diffractometry measurements was also stored in a plaintext format. This data consisted of 5 columns: $Y$ position along the sample, axial lattice spacing ($d_a$), axial error, transverse lattice spacing ($d_t$), and transverse error. All data was measured in Angstrom (\si{\angstrom}), except the $Y$ position which was measured in \si{\milli\meter}.
 \section{Discussion}
 \section{Conclusion}
 \section{References}
+\section{Appendices}
 
 \end{document} 

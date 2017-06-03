@@ -21,7 +21,7 @@ area = width*height
 
 data_path = "data/stress_strain_6061.txt" #input("Path to data: ")
 cross_section = area #float(input("Cross sectional area of Sample: "))
-poisson = 0.3 #float(input("Enter Poisson ratio: "))
+poisson = 0.34 #float(input("Enter Poisson ratio: "))
 
 raw_data = np.loadtxt(data_path, skiprows=1)
 
