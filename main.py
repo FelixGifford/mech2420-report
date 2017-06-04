@@ -6,9 +6,9 @@ import numpy as np
 print("Numpy")
 import scipy.stats
 print("Scipy Statistics")
-#import matplotlib as mpl
+import matplotlib as mpl
 print("Matplotlib")
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 print("Pyplot")
 #mpl.rc('text', usetex = True)
 #mpl.rc('font', **{'family':"sans-serif"})
@@ -39,14 +39,12 @@ d[:,0] = ((d[:,0]-d[0,0])/d[:,0])
 
 #take elastic modulus measurement
 elastic_modulus,i,r,p,err = scipy.stats.linregress(d[0:int(len(d)*0.2)])
-print(s)
-#elastic_modulus = 
-#error = 
 
-'''plt.plot(d[:,0],d[:,1], linestyle="-", color='r')
+plt.plot(d[:,0],d[:,1], linestyle="-", color='r')
+plt.plot(d[:,0],elastic_modulus*d[:,0])
 #print(data)
 
-
+'''
 plt.ylabel(r"$\sigma MPa$")
 plt.xlabel(r"$\epsilon$")
 
@@ -54,5 +52,5 @@ plt.axis('auto')
 #plt.annotate('$\epsilon_U$', xy=(0.02, 18.1), xytext=(0.02, 15),
 #            arrowprops=dict(facecolor='black', shrink=0.05),
 #            )
-
-plt.show()'''
+'''
+plt.show()
