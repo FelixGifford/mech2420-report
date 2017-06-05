@@ -1,0 +1,173 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Analytics%
+}{%
+Analytics%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Anaconda}
+\APACinsertmetastar {%
+Anaconda}%
+\begin{APACrefauthors}%
+Analytics, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Anaconda Software Distribution.} {Anaconda software
+  distribution.}
+\newblock
+\APAChowpublished {\url{continuum.io}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ford%
+}{%
+Ford%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+ToughGlass}
+\APACinsertmetastar {%
+ToughGlass}%
+\begin{APACrefauthors}%
+Ford, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {How is tempered glass made?} {How is tempered glass made?}\
+  [blog].
+\newblock
+\APAChowpublished
+  {\url{www.scientificamerican.com/article/how-is-tempered-glass-mad/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fultz%
+\ \BBA {} Howe%
+}{%
+Fultz%
+\ \BBA {} Howe%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Diffraction_Xray}
+\APACinsertmetastar {%
+Diffraction_Xray}%
+\begin{APACrefauthors}%
+Fultz, B.%
+\BCBT {}\ \BBA {} Howe, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2013}.
+\newblock
+\APACrefbtitle {Diffraction and the X-Ray Powder Diffractometer} {Diffraction
+  and the x-ray powder diffractometer}.
+\newblock
+\APACaddressPublisher{}{Springer Berlin Heidelberg}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Grogan%
+}{%
+Grogan%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+RupertDrop}
+\APACinsertmetastar {%
+RupertDrop}%
+\begin{APACrefauthors}%
+Grogan, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+\APACrefbtitle {Prince Rupert's Drops.} {Prince rupert's drops.}
+\newblock
+\APAChowpublished
+  {\url{commons.wikimedia.org/wiki/File:Prince_Ruperts_drops.jpg}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Inductiveload%
+}{%
+Inductiveload%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+Diffraction}
+\APACinsertmetastar {%
+Diffraction}%
+\begin{APACrefauthors}%
+Inductiveload.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+\APACrefbtitle {Diffraction through Pinhole.} {Diffraction through pinhole.}
+\newblock
+\APAChowpublished
+  {\url{commons.wikimedia.org/wiki/File:Diffraction_through_Pinhole.svg}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lebigot%
+}{%
+Lebigot%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Uncertainties}
+\APACinsertmetastar {%
+Uncertainties}%
+\begin{APACrefauthors}%
+Lebigot, E\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Uncertainties: a Python package for calculations with
+  uncertainties.} {Uncertainties: a python package for calculations with
+  uncertainties.}
+\newblock
+\APAChowpublished {\url{pythonhosted.org/uncertainties/}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wensrich%
+\ \BBA {} Jackson%
+}{%
+Wensrich%
+\ \BBA {} Jackson%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Handout}
+\APACinsertmetastar {%
+Handout}%
+\begin{APACrefauthors}%
+Wensrich, C.%
+\BCBT {}\ \BBA {} Jackson, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {MECH2420: Residual Stress Measurement using Neutron
+  Diffraction Report Handout} {Mech2420: Residual stress measurement using
+  neutron diffraction report handout}.{\BBCQ}
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

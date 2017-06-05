@@ -8,7 +8,12 @@
 \usepackage{amssymb}
 
 \usepackage{siunitx}
+\usepackage{apacite}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
 
+\usepackage{subcaption}
+\usepackage{listings}
 %SetFonts
 
 %SetFonts
@@ -23,33 +28,42 @@
 \maketitle
 \section{Abstract}
 \section{Introduction and Background}
+In many engineering situations it is important to control and measure residual stresses accurately and non-destructively. Residual stresses can be measured in many ways, however most of these techniques involve a destructive method. Some examples include cutting into a sample of material to observe the effects of the stresses 'relaxing', drilling holes into the material and observing the stress' effects on a core of material, and many similar methods. It is not always ideal or even possible to use a destructive technique such as the above, and one must begin to consider non-destructive methods involving magnets, sound, or in this particular case, neutron diffraction.
 \subsection{Diffraction}
-Diffraction consists of a range of phenomena that occure when a wave interacts with physical objects. When a wave approaches the edge of an object it is bent around it into the area that geometrically should be in shadow. Once a wave diffracts around an object, various interference effects can occur. These interference effects are the result of multiple wave interacting with each other out of phase, and can have both constructive and destructive effects. Constructive effects occur when the peaks or troughs of the waves align and add together, increasing the amplitude of the wave. Destructive effects, on the other hand occur when a peak of one wave intersects with the trough of another, causing the waves to cancel out. These interference effecs occur with the diffraction of waves but are most apparent when the size of the opening is close to the wavelength. Diffraction from multiple apertures also leads to a variety of interference patterns. A prominent example of this is Young's double-slit interferometer, in which Young passed a beam of monochromatic beam of light through two adjacent slits and observed an interference pattern, proving the wave nature of light. This same effect has an easily accessible analog in water (\ref{fig:WaterDiff}).
-\begin{figure}
-	\caption{A demonstration of interfernce effects in water, similar to Young's Experiment}\label{fig:WaterDiff}
+Diffraction consists of a range of phenomena that occur when a wave interacts with physical objects. When a wave approaches the edge of an object it is bent around it into the area that geometrically should be in shadow. Once a wave diffracts around an object, various interference effects can occur. These interference effects are the result of multiple wave interacting with each other out of phase, and can have both constructive and destructive effects. Constructive effects occur when the peaks or troughs of the waves align and add together, increasing the amplitude of the wave. Destructive effects, on the other hand occur when a peak of one wave intersects with the trough of another, causing the waves to cancel out. These interference effects occur with the diffraction of waves but are most apparent when the size of the opening is close to the wavelength. Diffraction from multiple apertures also leads to a variety of interference patterns. A prominent example of this is Young's double-slit interferometer, in which Young passed a beam of monochromatic beam of light through two adjacent slits and observed an interference pattern, proving the wave nature of light.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=150pt]{img/600px-Diffraction_through_Pinhole.png}
+	\caption{A visualization of a wavefront diffracting through a pinhole much smaller than it's wavelength.}\cite{Diffraction}\label{fig:Diff}
 \end{figure}
 \subsection{Quantum Diffraction}
-One of the fundamental concepts in quantum mechanics is that of wave-particle duality. This concept first originated with Einstein's idea that like, an electromagnetic wave, could also be propaged by discrete quantum particles, photons. From this de Broglie theorised the converse, if light has properties of both a wave and a particle, then all particles have properties of waves. The de Broglie wavelength of a particle was derived from rearranging the formulae for the Planck-Einstein relation, \[E=hf\] and momentum, \[p=\frac{E}{c}=\frac{h}{\lambda}\] where $f$ and $\lambda$ represent the frequency and wavelength, $c$ the speed of light, $h$ Planck's constant, into \[\lambda=\frac{h}{p}\], which relates momentum to the wavelength through Planck's constant. This relation holds true for particles, and this was experimentally proven using electrons. The Davisson-Germer experiment in 1927 involved firing electrons at a nickel target and measuring the intensity at the target. The intensity varied as the predicted diffraction pattern suggested, thus confirming de Broglie's hypothesis. Just as light diffracts when it interacts with physical objects, so can quantum particles.
-
-A crystal lattice structure exhibits characteristic diffraction patterns when it interacts with waves, and de Broglie's ideas allow one to extend this idea to quantum particles as well. Huy%%%%%%
-\subsection{Elastoplasticity}
+One of the fundamental concepts in quantum mechanics is that of wave-particle duality. This concept first originated with Einstein's idea that like, an electromagnetic wave, could also be propagated by discrete quantum particles, photons. From this de Broglie theorised the converse, if light has properties of both a wave and a particle, then all particles have properties of waves. The de Broglie wavelength of a particle was derived from rearranging the formulae for the Planck-Einstein relation, \[E=hf\] and momentum, \[p=\frac{E}{c}=\frac{h}{\lambda}\] where $f$ and $\lambda$ represent the frequency and wavelength, $c$ the speed of light, $h$ Planck's constant, into \[\lambda=\frac{h}{p}\] which relates momentum to the wavelength through Planck's constant. This relation holds true for particles, and this was experimentally proven using electrons. The Davisson-Germer experiment in 1927 involved firing electrons at a nickel target and measuring the intensity at the target. The intensity varied as the predicted diffraction pattern suggested, thus confirming de Broglie's hypothesis. Just as light diffracts when it interacts with physical objects, so can quantum particles.
+A crystal lattice structure exhibits characteristic diffraction patterns when it interacts with waves, and de Broglie's ideas allow one to extend this idea to quantum particles as well. Huygen's principle means that each atom that interacts with a particle, becomes the source of it's own wave and this effect compounding with a fixed wavelength leads to diffraction patterns that can be used to infer details of the crystal lattice structure. The diffraction peaks of these patterns occur at certain angles relative to the planes in the crystal lattice and this relationship expresses itself as Bragg's Law: \[n\lambda=2d\sin{\theta}\]. In the case of crystal diffractometry, $d$ represents the spacing between lattice planes.\cite{Handout}\cite{Diffraction_Xray}
+\subsection{Residual Stress}
+When a material experiences a loading and subsequent unloading, there are some stresses left in the material. These stresses are known as residual stresses. Residual stresses are commonly left behind after various manufacturing techniques, sometimes they are a desired result, and sometimes they are a detrimental by-product. They can improve the strength and performance of materials, or weaken a material leading to undesired failure. A very common example of residual stresses being utilized to improve the performance of a material is tempered or toughened glass. 
+Tempered glass is annealed glass (all residual stresses are relaxed prior to the tempering process) which undergoes either a chemical or thermal toughening procedure \cite{ToughGlass}. The thermal toughening procedure involves taking the annealed glass and heating it well above its transition temperature, approximately \SI{564}{\celsius}, before rapidly quenching. The glass is not completely cooled as the desired result is a solidified outer layer and an inner volume that is still above the transition temperature. Once the glass has fully cooled, the outer layers which experienced the quench are under a great deal of residual compressive stress and the inner volume, which was allowed to slowly cool, experiences a residual tensile stress. These residual stresses greatly improve the strength of the glass by allowing the outer surfaces to experience a much higher tensile load before failure.
+\begin{figure}
+	\centering
+	\includegraphics[width=250pt]{img/prince_rupert.jpg}
+	\caption{Prince Rupert's drops are an extreme example of residual stresses in toughened glass}\cite{RupertDrop} \label{fig:RupertDrop}
+\end{figure}
 \subsection{Strain Measurement}
-A strain diffractometer is a device that uses the principles of quantum mechanics and diffraction to provide insight into the behaviour of of material at the nanoscale. A material behaving elastically under an applied stress will have a corresponding strain in accordance with Hooke's Law. This strain manifests itself physically as an alongation but on the nanoscale it can be measured as a change in the atomic spacing of the material. This change in atomic spacing can be observed by comparing the positions of a diffraction peak, caused by the lattice structure in the material, before and after a stress is applied. This measurement technique is both non-destructive and non-contact, making it ideal for use in many engineering situations.
-The output of the strain diffractometry measurements will be two angles, those of the diffraction peak before, and while, the strain is applied. These angles can be converted into spacings using Bragg's Law, and further converted into strain ($\epsilon$) using the following formula where $d$ is the control spacing and $d'$ is the strained spacing.
+A strain diffractometer is a device that uses the principles of quantum mechanics and diffraction to provide insight into the behaviour of of material at the nano-scale. A material behaving elastically under an applied stress will have a corresponding strain in accordance with Hooke's Law. This strain manifests itself physically as an elongation but on the nano-scale it can be measured as a change in the atomic spacing of the material. This change in atomic spacing can be observed by comparing the positions of a diffraction peak, caused by the lattice structure in the material, before and after a stress is applied. This measurement technique is both non-destructive and non-contact, making it ideal for use in many engineering situations.
+The output of the strain diffractometer will be two angles, those of the diffraction peak before, and while, the strain is applied. These angles can be converted into spacings using Bragg's Law, and further converted into strain ($\epsilon$) using the following formula where $d$ is the control spacing and $d'$ is the strained spacing.
 \[
 \epsilon = \frac{d'-d}{d}
 \]
 The region of material that is tested is known as the "Gauge Volume", and the measured strain represents the average value over this region. The gauge volume is formed at the intersection of the incoming beam and the diffracted beam. The direction that the strain is measured in is also the direction that bisects the two beams, thus is is important to take two (or three) perpendicular measurements in order to get a complete strain state.
-It is important to not that this measurement technique will not measure any plastic strain in the sample. Elastic strain is cause by the change in lattice spacings due to applied stress, whereas plastic strain is the result of the movement of defects and displacements in the lattice of the material. Plastic strain does not affect the lattice spacing, only the location of atoms in the lattice.
+It is important to not that this measurement technique will not measure any plastic strain in the sample. Elastic strain is caused by the change in lattice spacings due to applied stress, whereas plastic strain is the result of the movement of defects and displacements in the lattice of the material. Plastic strain does not affect the lattice spacing, only the location of atoms in the lattice.
 \section{Experimental Details}
 \subsection{Preparation of Samples}
-The samples to undergo residual stress testing were cut from sheets of aluminium from a supplier based in Sydney. The stress was applied using a four point bending device and displacement was measured with a steel ruler
+The samples to undergo residual stress testing were cut from sheets of aluminium from a supplier based in Sydney. The stress was applied using a four point bending device and displacement was measured with a steel ruler. The four point bending device applied a pure bending moment load on the central \SI{100}{\milli\meter} region of the sample. The material outside this region was removed and discarded. The remaining material was analysed for residual stresses in the strain diffractometer. The four point 
 \subsection{Testing of Mechanical Properties}
 In order to determine the residual stress in a material by the neutron diffraction method, it is critical to know some of the important mechanical properties of the material. Namely: the Young's Modulus ($E$), and Poisson's Ratio ($\nu$). The Young's Modulus (or Modulus of Elasticity) is the relationship between stress ($\sigma$) and strain ($\epsilon$) in accordance with Hooke's Law.
 $$\sigma = E\epsilon$$
 Poisson's Ratio is used for stress and strain in three dimensions:
 
-The mechanical properties of the materials were determinedby the use of the University's tensile testing facilities on small samples of each material. The samples used were small 'dogbone' coupons, cut from the original stock plates of aluminium. A schematic of these 'dogbones' is shown below.
+The mechanical properties of the materials were determined by the use of the University's tensile testing facilities on small samples of each material. The samples used were small 'dog-bone' coupons, cut from the original stock plates of aluminium. A schematic of these 'dog-bones' is shown below.
 
 These coupons were put through a standard tensile test, involving the application of an increasing tensile load until failure while simultaneously recording measurements with a load cell and a strain gauge. Once the sample had passed passed it's yield stress and begun plastic deformation the strain gauge was removed the and load was increased to the point of failure. The final load ($F_F$), and ultimate strain ($\sigma_U$) are recorded in Table \ref{tab:a}.
 \begin{table}[h]
@@ -61,30 +75,87 @@ These coupons were put through a standard tensile test, involving the applicatio
 	7075-T6 & 34.7 & 0.18 \\
 	\end{tabular}
 \end{table}
-\subsection{Bragg Institute}
-\subsection{Data Processing}
-\subsubsection{Determination of Elastic Properties}
-Once the raw data had been gathered from the experiments it needed to be processed and used in calculations to determine the residual stress. The data was processed using Anaconda, which is a scientific distribution of Python.
-The first data to be processed was the stress/strain data as that would allow for the determination of the elastic properites of the two metals, allowing further calculations. The data, which consisted of two columns, gauge length and applied force, was loaded from text files to a Numpy array, then sorted by displacement values before being transformed into stress and strain values.
-In order to find an elastic modulus ($E$) from this sorted data, a linear regression fit was carried out on the first 20\% of the data. This 20\% was chosen as it contained a linear region of the elastic behaviour of the metal, while being minimally affected by the non-linearities caused by plastic deformation. The results of this fit are recorded in Table \ref{tab:b} and Figure \ref{fig:StressStrain} show plots of the stress/strain curve and the calculated elasic modulus.
+\subsection{Strain Measurement}
+The strain diffractometry measurements were carried out at the KOWARI diffractometer at Sydney's Bragg Institute. A neutron wavelength of \SI{1.73}{\angstrom} was used to obtain \SI{90}{\degree} measurement geometry and a gauge volume of \SI{2x2x20}{\milli\meter} was used. Reference spacings ($d_0$) were obtained from an un-deformed sample of each material. \cite{Handout}
 \begin{table}[h]
 	\centering
-	\caption{Linear Regression results for the stress/strain datasets}\label{tab:b}
+	\caption{Reference ($d_0$) spacings}\label{tab:reference}
+	\begin{tabular}[c]{c c}
+	Sample & $d_0$ (\si{\angstrom}) \\ \hline \
+	6061-T6 & $1.2181161 \pm 8\times10^{-6}$\\
+	7075-T6 & $1.2188861 \pm 5\times10^{-6}$\\
+	\end{tabular}
+\end{table}
+\subsection{Data Processing}
+\subsubsection{Software}
+All data was processed using Python3, as part of the Anaconda Data Science distribution \cite{Anaconda}. The data was taken in as a Numpy array, which is a numerical array computing library included in the Anaconda distribution, before being processed. The plots were created in Matplotlib, a plotting library that mirrors MATLAB's plotting functionality. Uncertainties were handled by the python Uncertainties library \cite{Uncertainties}. All the libraries used are open source, and the data processing code is included in the appendices.
+\subsubsection{Determination of Elastic Properties}
+Once the raw data had been gathered from the experiments it needed to be processed and used in calculations to determine the residual stress.
+The first data-set to be processed was the stress/strain data as that would allow for the determination of the elastic properties of the two metals, allowing further calculations. The data, which consisted of two columns, gauge length and applied force, was loaded from text files to a Numpy array, then sorted by displacement values before being transformed into stress and strain values.
+In order to find an elastic modulus ($E$) from this sorted data, a linear regression fit was carried out on the first 20\% of the data. This 20\% was chosen as it contained a linear region of the elastic behaviour of the metal, while being minimally affected by the non-linearities caused by plastic deformation. The results of this fit are recorded in Table \ref{tab:LinReg} and Figure \ref{fig:StressStrain} show plots of the stress/strain curve and the calculated elastic modulus.
+\begin{table}[h!]
+	\centering
+	\caption{Linear Regression results for the stress/strain datasets}\label{tab:LinReg}
 	\begin{tabular}[c]{c | c c c c}
-	Sample & $E$ (\si{\mega\pascal}) & R value & P value & S error \\ \hline\
-	6061-T6 & 1 & 1 & 1 & 1 \\
-	7075-T6 & 1 & 1 & 1 & 1 \\
+	Sample & $E$ (\si{\giga\pascal}) & R value\\ \hline\
+	6061-T6 & 71.73 & 0.9995 \\
+	7075-T6 & 71.69 & 0.9997 \\
 	\end{tabular}
 \end{table}
 \begin{figure}
-	\caption{Stress/Strain curve for 6061-T6 and 7075-T6 Aluminium samples}\label{fig:StressStrain}
+	\centering
+	\caption{Stress/Strain curves for 6061-T6 and 7075-T6 Aluminium samples}\label{fig:StressStrain}
+	\scalebox{0.75}{\input{pgf/6061_StressStrain.pgf}}
+	\scalebox{0.75}{\input{pgf/7075_StressStrain.pgf}}
 \end{figure}
-When the elastic modulus was determined, the 2\% proof stress was determined by finding the 
+\begin{figure}
+\centering
+\scalebox{0.75}{\input{pgf/6061_strain.pgf}}
+\end{figure}
+When the elastic modulus was determined, the 0.2\% proof stress was determined by finding the intersection of the line \[\sigma=E(\epsilon-0.002)\] with the curve given by the stress-strain relationship. Table \ref{tab:ElasticProperties} contains the results of the data analysis.
 \subsubsection{Strain Diffractometry Data}
-The data from the diffractometry measurements was also stored in a plaintext format. This data consisted of 5 columns: $Y$ position along the sample, axial lattice spacing ($d_a$), axial error, transverse lattice spacing ($d_t$), and transverse error. All data was measured in Angstrom (\si{\angstrom}), except the $Y$ position which was measured in \si{\milli\meter}.
-\section{Discussion}
+The data from the diffractometry measurements was also stored in a plain-text format. This data consisted of 5 columns: $y$-position along the sample, axial lattice spacing ($d_a$), axial error, transverse lattice spacing ($d_t$), and transverse error. All data was measured in Ångstroms (\si{\angstrom}), except the $y$-position which was measured in \si{\milli\meter}. The processing of this data was simple as it involved one operation performed on the columns of the data array.
+\subsection{Results}
+The results of the data analysis are included in tabular form below. Table \ref{tab:ElasticProperties} contains the elastic properties that were obtained through the analysis, and Table \ref{tab:StrainValues} contains the axial and transverse strain values.
+\begin{table}[h!]
+	\centering
+	\caption{Elastic property results from data analysis}\label{tab:ElasticProperties}
+	\begin{tabular}[c]{c | c c}{}
+	Sample & Elastic Modulus ($E$) (\si{\giga\pascal}) & Proof Stress ($\sigma_{0.2}$) (\si{\mega\pascal}) \\ \hline\
+	6061-T6 & 71.73 & 294.63 \\
+	7075-T6 & 71.69 & 539.42 \\
+	\end{tabular}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Strain diffractometry results}\label{tab:StrainValues}
+	\scalebox{0.75}{
+	\begin{tabular}{c|c c}
+	6061 T6 \\
+	$y$-value & Axial Strain & Transverse Strain \\ \hline\
+	\input{data/6061_strain.txt}
+	\end{tabular}
+	\begin{tabular}{c|c c}
+	7075 T6\\
+	$y$-value & Axial Strain & Transverse Strain \\ \hline\
+	\input{data/7075_strain.txt}
+	\end{tabular}
+	}
+\end{table}
+\subsection{Theoretical Results}
+The behaviour of a theoretical elasto-plastic beam under pure bending load gives rise to a stress distribution with regions of plastic stress on the outer surfaces of the beam, normal to the radius of curvature, as they experience the highest stress. The interior of the beam, surrounding the neutral plane remains under purely elastic load.
+Calculations based on elasto-plastic beam theory are found in the appendices.
 \section{Conclusion}
-\section{References}
-\section{Appendices}
+\bibliographystyle{apacite}
+\bibliography{bibliography}
+\appendix
+\section{Analysis Code}
+\lstinputlisting{analysis.py}
+\section{Sample Headers}
+\subsection{6061}
+\lstinputlisting{data/6061.cfg}
+\subsection{7075}
+\lstinputlisting{data/7075.cfg}
+
 
 \end{document} 
