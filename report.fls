@@ -270,13 +270,15 @@ INPUT pgf/7075_StressStrain.pgf
 INPUT pgf/7075_StressStrain.pgf
 INPUT pgf/6061_strain.pgf
 INPUT pgf/6061_strain.pgf
+INPUT pgf/7075_strain.pgf
+INPUT pgf/7075_strain.pgf
 INPUT data/6061_strain.txt
 INPUT data/6061_strain.txt
 INPUT data/7075_strain.txt
 INPUT data/7075_strain.txt
-INPUT report.bbl
-INPUT report.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT report.bbl
+INPUT report.bbl
 INPUT analysis.py
 INPUT analysis.py
 INPUT analysis.py

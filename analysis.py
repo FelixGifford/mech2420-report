@@ -1,4 +1,13 @@
 #!/Users/felixgifford/anaconda/bin/python3
+'''
+Code for analysis for MECH2420 Strain Diffractometry Data
+
+Felix Gifford
+
+c3260374
+'''
+
+
 print("Importing Modules")
 import sys, os
 print("System libraries")
@@ -72,7 +81,7 @@ class Sample(object):
 	def createDiffractionModel(self):
 		self.diff_data = np.loadtxt(self.diff_path, skiprows=1)
 
-		self.DiffractionModel = DiffractionModel(self.diff_data, self.d_0)
+		self.DiffractionModel = DiffractionModel(self.diff_data, self.d_0, self.ElastoPlastic_Model.elastic_modulus[0])
 
 		self.DiffractionModel.dump_to_disk(self.id)
 
@@ -80,6 +89,8 @@ class Sample(object):
 		self.DiffractionModel.create_plots()
 
 		plt.title("Measured Strain {}".format(self.name))
+		plt.ylabel(r"$y (\si{\milli\meter}$")
+		plt.xlabel(r"$\epsilon$")
 
 		plt.savefig('pgf/{}_strain.pgf'.format(self.id))
 
@@ -136,11 +147,12 @@ class ElastoPlastic_Model(object):
 		return "E: {:>5.2f} GPa, Proof Stress: {:>5.2f} MPa".format(self.elastic_modulus[0]*1e-9, self.proof_stress*1e-6)
 
 class DiffractionModel(object):
-	def __init__(self, diff_data, d_0):
+	def __init__(self, diff_data, d_0, E):
 		'''Initialize'''
 		self.diff_data = diff_data
 		self.d_0 = d_0
 		self.data_n = len(self.diff_data)
+		self.E = E
 
 		self.transformData()
 
@@ -150,20 +162,23 @@ class DiffractionModel(object):
 
 		self.strain_measured = np.column_stack( (self.diff_data[:,0], (self.axial-self.d_0)/self.d_0, (self.transverse-self.d_0)/self.d_0 ) )
 
-	def create_plots(self):
-		print(self.strain_measured)
-		fig, (ax0, ax1) = plt.subplots(ncols=2, sharey=True)
-		ax0.errorbar(uncertainties.unumpy.nominal_values(self.strain_measured[1]),
-					 uncertainties.unumpy.nominal_values(self.strain_measured[0]),
-					 xerr=uncertainties.unumpy.std_devs(self.strain_measured[1]))
-		ax1.errorbar(uncertainties.unumpy.nominal_values(self.strain_measured[2]),
-					 uncertainties.unumpy.nominal_values(self.strain_measured[0]),
-					 xerr=uncertainties.unumpy.std_devs(self.strain_measured[2]))
+		print(self.E)
 
-		plt.show()
+		self.stress_measured = self.strain_measured*self.E
+
+	def create_plots(self):
+		
+		fig, (ax0, ax1) = plt.subplots(ncols=2, sharey=True)
+		ax0.plot(uncertainties.unumpy.nominal_values(self.strain_measured[1]),
+					 uncertainties.unumpy.nominal_values(self.strain_measured[0]),
+					 )#xerr=uncertainties.unumpy.std_devs(self.strain_measured[1]))
+		ax1.plot(uncertainties.unumpy.nominal_values(self.strain_measured[2]),
+					 uncertainties.unumpy.nominal_values(self.strain_measured[0]),
+					 )#xerr=uncertainties.unumpy.std_devs(self.strain_measured[2]))
 
 	def dump_to_disk(self, id):
 		np.savetxt("data/{}_strain.txt".format(id), self.strain_measured, delimiter=' & ', fmt='%5.15r', newline=' \\\\\n')
+		np.savetxt("data/{}_stress.txt".format(id), self.strain_measured, delimiter=' & ', fmt='%5.15r', newline=' \\\\\n')
 	#def __str__(self):
 	#	return self.strain_measured
 
@@ -172,24 +187,4 @@ for sample in ["data/6061.cfg", "data/7075.cfg"]:
 	s.createElastoPlastic_Model()
 	s.createDiffractionModel()
 	print(s.ElastoPlastic_Model)
-	print(s.DiffractionModel)
 	s.create_diff_plot()
-
-'''d_0 = uncertainties.ufloat(1.2181161, 8e-6)
-
-diffraction_data = np.loadtxt("data/diffraction_data_6061.txt", skiprows=1)
-
-#plt.plot(d[:,0],d[:,1], linestyle="-", color='r')
-#plt.plot(d[:,0],elastic_modulus*d[:,0])
-#print(data)
-'''
-'''
-plt.ylabel(r"$\sigma MPa$")
-plt.xlabel(r"$\epsilon$")
-
-plt.axis('auto')
-#plt.annotate('$\epsilon_U$', xy=(0.02, 18.1), xytext=(0.02, 15),
-#            arrowprops=dict(facecolor='black', shrink=0.05),
-#            )
-'''
-#plt.show()

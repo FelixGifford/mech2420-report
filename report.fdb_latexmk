@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex report"] 1496642147 "report.aux" "report.bbl" "report" 1496644308
+["bibtex report"] 1496709410 "report.aux" "report.bbl" "report" 1496709837
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
-  "bibliography.bib" 1496638956 1300 d65f557fa9a52e1770c90fef49c76500 ""
-  "report.aux" 1496644307 5003 cd6ff42f3e0f87dae71cb6ab489a909f ""
+  "bibliography.bib" 1496708362 1707 c61e36fc51f76d8b0dde0ae719b4d73f ""
+  "report.aux" 1496709836 5971 d8337b91a263192a26d9e2fcb624915e ""
   "report.bcf" 0 -1 0 ""
   (generated)
-  "report.blg"
   "report.bbl"
+  "report.blg"
 ["latex"] 1496619692 "report.tex" "report.dvi" "report" 1496619692
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -79,7 +79,7 @@
   "report.aux"
   "report.dvi"
   "report.log"
-["pdflatex"] 1496644305 "report.tex" "report.pdf" "report" 1496644308
+["pdflatex"] 1496709834 "report.tex" "report.pdf" "report" 1496709837
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -250,20 +250,21 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495103402 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1495103478 3873397 5fb9b1795683d86a1eda0e4fca752088 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "analysis.py" 1496640392 6304 fbe609d3708e02b4f3aeec6447d6c4cf ""
+  "analysis.py" 1496709820 6081 b2bcad1a040f0f099d893d6bf2853fb3 ""
   "data/6061.cfg" 1496625550 229 5bdfadfadab9bf554a3b20dc59dc55e7 ""
-  "data/6061_strain.txt" 1496640397 945 4f43584bccf6a4cdcbdace572cb5e97a ""
+  "data/6061_strain.txt" 1496709821 945 4f43584bccf6a4cdcbdace572cb5e97a ""
   "data/7075.cfg" 1496625551 229 dc940d295d2384e544231850c33e5631 ""
-  "data/7075_strain.txt" 1496640401 855 8bbe53dc5f923d7d833befe90e8d28ad ""
+  "data/7075_strain.txt" 1496709825 855 8bbe53dc5f923d7d833befe90e8d28ad ""
   "img/600px-Diffraction_through_Pinhole.png" 1496638834 84810 41d9e74e3138bb00b6b5d90654140827 ""
   "img/prince_rupert.jpg" 1496594466 36700 31e022dc94bcec7aae115e206ecfeb19 ""
   "pgf/6061_StressStrain.pgf" 1496626576 42000 158a3a2475b7ba50e963d631437da353 ""
-  "pgf/6061_strain.pgf" 1496640400 26580 634c849c872447c3a829e4da27f57f23 ""
+  "pgf/6061_strain.pgf" 1496709825 24218 ad842c491ae62f41c2c5f96a53b634de ""
   "pgf/7075_StressStrain.pgf" 1496626576 28758 f8a803c7fb20879184d6350d09f9cdbe ""
-  "report.aux" 1496644307 5003 cd6ff42f3e0f87dae71cb6ab489a909f ""
-  "report.bbl" 1496642147 3695 b95b2c7608ac1a324c44e17fb8ab064c "bibtex report"
-  "report.tex" 1496644303 16579 383bcd41a439b82d5e5c8932de229bae ""
+  "pgf/7075_strain.pgf" 1496709825 24891 8da71602f09cd91d72fe9475d92567fb ""
+  "report.aux" 1496709836 5971 d8337b91a263192a26d9e2fcb624915e ""
+  "report.bbl" 1496709411 4854 48cc68a4b3083b8ca0bdcdafd9b88a0f "bibtex report"
+  "report.tex" 1496709213 18194 a45466ce9114409bda6783418a475fc7 ""
   (generated)
-  "report.pdf"
   "report.log"
+  "report.pdf"
   "report.aux"

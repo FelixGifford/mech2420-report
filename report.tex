@@ -27,8 +27,8 @@
 
 \maketitle
 \section{Abstract}
-\section{Introduction and Background}
 In many engineering situations it is important to control and measure residual stresses accurately and non-destructively. Residual stresses can be measured in many ways, however most of these techniques involve a destructive method. Some examples include cutting into a sample of material to observe the effects of the stresses 'relaxing', drilling holes into the material and observing the stress' effects on a core of material, and many similar methods. It is not always ideal or even possible to use a destructive technique such as the above, and one must begin to consider non-destructive methods involving magnets, sound, or in this particular case, neutron diffraction.
+\section{Background}
 \subsection{Diffraction}
 Diffraction consists of a range of phenomena that occur when a wave interacts with physical objects. When a wave approaches the edge of an object it is bent around it into the area that geometrically should be in shadow. Once a wave diffracts around an object, various interference effects can occur. These interference effects are the result of multiple wave interacting with each other out of phase, and can have both constructive and destructive effects. Constructive effects occur when the peaks or troughs of the waves align and add together, increasing the amplitude of the wave. Destructive effects, on the other hand occur when a peak of one wave intersects with the trough of another, causing the waves to cancel out. These interference effects occur with the diffraction of waves but are most apparent when the size of the opening is close to the wavelength. Diffraction from multiple apertures also leads to a variety of interference patterns. A prominent example of this is Young's double-slit interferometer, in which Young passed a beam of monochromatic beam of light through two adjacent slits and observed an interference pattern, proving the wave nature of light.
 \begin{figure}[h!]
@@ -112,6 +112,10 @@ In order to find an elastic modulus ($E$) from this sorted data, a linear regres
 \centering
 \scalebox{0.75}{\input{pgf/6061_strain.pgf}}
 \end{figure}
+\begin{figure}
+\centering
+\scalebox{0.75}{\input{pgf/7075_strain.pgf}}
+\end{figure}
 When the elastic modulus was determined, the 0.2\% proof stress was determined by finding the intersection of the line \[\sigma=E(\epsilon-0.002)\] with the curve given by the stress-strain relationship. Table \ref{tab:ElasticProperties} contains the results of the data analysis.
 \subsubsection{Strain Diffractometry Data}
 The data from the diffractometry measurements was also stored in a plain-text format. This data consisted of 5 columns: $y$-position along the sample, axial lattice spacing ($d_a$), axial error, transverse lattice spacing ($d_t$), and transverse error. All data was measured in Ångstroms (\si{\angstrom}), except the $y$-position which was measured in \si{\milli\meter}. The processing of this data was simple as it involved one operation performed on the columns of the data array.
@@ -121,7 +125,7 @@ The results of the data analysis are included in tabular form below. Table \ref{
 	\centering
 	\caption{Elastic property results from data analysis}\label{tab:ElasticProperties}
 	\begin{tabular}[c]{c | c c}{}
-	Sample & Elastic Modulus ($E$) (\si{\giga\pascal}) & Proof Stress ($\sigma_{0.2}$) (\si{\mega\pascal}) \\ \hline\
+	Sample & Elastic Modulus ($E$) (\si{\giga\pascal})  & Proof Stress ($\sigma_{0.2}$) (\si{\mega\pascal}) \\ \hline\
 	6061-T6 & 71.73 & 294.63 \\
 	7075-T6 & 71.69 & 539.42 \\
 	\end{tabular}
@@ -146,8 +150,13 @@ The results of the data analysis are included in tabular form below. Table \ref{
 The behaviour of a theoretical elasto-plastic beam under pure bending load gives rise to a stress distribution with regions of plastic stress on the outer surfaces of the beam, normal to the radius of curvature, as they experience the highest stress. The interior of the beam, surrounding the neutral plane remains under purely elastic load.
 Calculations based on elasto-plastic beam theory are found in the appendices.
 \section{Conclusion}
+Due to time constraints full theoretical models were not completed and a comparison could not fully be made. If full theoretical models were made based on elasto-plastic beam theory a comparison between the distribution of elastic stresses in reality and theory could be made. There would definitely be some variance between the two due to the assumptions made in determining the elastic properties
+\section{Discussion}
+The analysis of residual stress using neutron diffraction is clearly an effective method \cite{Diffraction_Xray} \cite{MeasurementConference}, however this could not be fully verified in this report. It is critical to create an effective (and complete) theoretical model and understanding to hold as a comparison to any experimental technique. The methods of elasto-plastic beam theory are sufficient to develop such a model \cite{LecturesWensrich}, but more time is needed to gain a complete understanding.
+The analysis of the given data is sufficient, but further data about the samples is needed to process the data to a higher degree of accuracy. If test data to determine the Poisson ratio was sampled, then it could be a more precise value than the $\nu=0.34$ \cite{Handout} was assumed to be. The data analysis code is sufficiently modular to be able to process more data and can easily be extended.
+Visualizing the data does require additional effort, using 3D models to display the distribution of stress and strain within a sample would allow for a much more intuitive representation of the state of the samples.
 \bibliographystyle{apacite}
-\bibliography{bibliography}
+\bibliography{bibliography.bib}
 \appendix
 \section{Analysis Code}
 \lstinputlisting{analysis.py}

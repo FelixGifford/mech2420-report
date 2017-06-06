@@ -144,6 +144,45 @@ Lebigot, E\BPBI O.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {NATO Advanced Research Workshop on Measurement of Residual and
+  Applied Stress Using Neutron Diffraction}}{%
+\APACcitebtitle {NATO Advanced Research Workshop on Measurement of Residual and
+  Applied Stress Using Neutron Diffraction}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+MeasurementConference}
+\APACinsertmetastar {%
+MeasurementConference}%
+\APACrefbtitle {NATO Advanced Research Workshop on Measurement of Residual and
+  Applied Stress Using Neutron Diffraction.} {Nato advanced research workshop
+  on measurement of residual and applied stress using neutron diffraction.}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACaddressPublisher{}{Springer-Verlag}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wensrich%
+}{%
+Wensrich%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+LecturesWensrich}
+\APACinsertmetastar {%
+LecturesWensrich}%
+\begin{APACrefauthors}%
+Wensrich, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+\APACrefbtitle {MECH2420 Lectures.} {Mech2420 lectures.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Wensrich%
 \ \BBA {} Jackson%
 }{%
